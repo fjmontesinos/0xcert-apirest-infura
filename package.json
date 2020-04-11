@@ -1,0 +1,22 @@
+{
+  "name": "0xcert-certification",
+  "version": "1.0.0",
+  "description": "use of 0xcert framework to call xcert from web3 without 0xcert framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "0xcert",
+    "certification",
+    "blockchain"
+  ],
+  "author": "Javier Montesinos",
+  "license": "ISC",
+  "devDependencies": {
+    "@0xcert/ethereum-erc20-contracts": "^2.0.1",
+    "@0xcert/ethereum-erc721-contracts": "^2.0.1",
+    "@0xcert/ethereum-utils-contracts": "^2.0.1",
+    "@0xcert/ethereum-xcert-contracts": "^2.0.1"
+  }
+}
