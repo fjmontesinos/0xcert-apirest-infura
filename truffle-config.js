@@ -1,8 +1,10 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const fs = require('fs');
 
-const infuraProjectID = fs.readFileSync(".secret-project-id").toString().trim();
-const mnemonic = fs.readFileSync(".secret-mnemonic").toString().trim();
+let secrets;
+if (fs.existsSync('secrets.json')) {
+    secrets = JSON.parse(fs.readFileSync('secrets.json', 'utf8'));
+}
 
 module.exports = {
     /**
@@ -31,9 +33,10 @@ module.exports = {
         // deploying to a public network rinkeby
         rinkeby: {
             provider: function() {
-                return new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/v3/' + infuraProjectID);
+                return new HDWalletProvider(secrets.mnemonic, 'https://rinkeby.infura.io/v3/' + secrets.infuraProjectID);
             },
             network_id: 4, // Rinkeby's id
+            gasPrice: 1100000000, // 1.1 GWei            
             // gas: 5500000, // Ropsten has a lower block limit than mainnet
             // confirmations: 2, // # of confs to wait between deployments. (default: 0)
             // timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
