@@ -1,2 +1,5 @@
 build/
 node_modules/
+
+.secret-mnemonic
+.secret-project-id
